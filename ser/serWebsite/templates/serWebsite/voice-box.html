@@ -1,0 +1,124 @@
+{%  extends 'serWebsite/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+a{
+  text-decoration: none;
+  color: black;
+}
+
+html,body{
+    height:100%;
+    min-height:100%; 
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* remove extra space below image */
+}
+.folder-container{
+    height: 100vh;
+    width: 100%;
+    margin-top: 15vh;
+}
+.folder-row-1{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.folder-row-2{
+    display: flex;
+    flex-wrap: wrap;
+}
+.folder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    height: 200px;
+    width: 200px;
+    flex: 1;
+}
+.badge{
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.emotion-neutral{
+   
+}
+.label-container{
+    display: flex;
+}
+</style>
+<div class="folder-container">
+    <div class="folder-row-1">
+        <div class="folder emotion-neutral">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+                <a href="{% url 'emotion' 0 %}">Neutral</a>
+                <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-calm">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+                <a href="{% url 'emotion' 1 %}">Calm</a>
+                <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-happy">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div  class="label-container">
+            <a href="{% url 'emotion' 2 %}">Happy</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-sad">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+            <a href="{% url 'emotion' 3 %}">Sad</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+    </div>
+    <div class="folder-row-2">
+        <div class="folder emotion-angry">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+            <a href="{% url 'emotion' 4 %}">Angry</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-fearful">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+            <a href="{% url 'emotion' 5 %}">Fear</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-disgust">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+            <a href="{% url 'emotion' 6 %}">Disgust</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+        <div class="folder emotion-surprised">
+            <img src="{% static 'images/folder.png' %}" alt="">
+            <div class="label-container">
+            <a href="{% url 'emotion' 7 %}">Surprise</a>
+            <span class="badge"></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static '/js/voice_box.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,80 @@
+{%  extends 'serWebsite/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+html,body{
+    height:100%;
+    min-height:100%; 
+}
+img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* remove extra space below image */
+}
+.entry-container{
+    height: 100vh;
+    width: 100%;
+    margin-top: 15vh;
+}
+.entry{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    /* background-color:aqua; */
+}
+.date-container{
+    height: 100%;
+    display: flex;
+    align-items:flex-start;
+    flex:1;
+}
+.date-rem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.saved-audio-player-container{
+    flex:1;
+}
+.timestamp-container{
+    height: 100%;
+    display: flex;
+    align-items: center;  
+    justify-content: flex-end; 
+    flex:1;
+}
+</style>
+
+<div class="entry-container">
+    {% for clip in clips %}
+    <div class="entry">
+        <div class="date-container">
+            <h1 style="height: 100%;">{{clip.dd}}</h1>
+            <div class="date-rem">
+                <span style="margin: 0; font-size: 20px;">{{clip.day}}</span>
+                <span style="margin: 0; font-size: 12px;">{{clip.month}} {{clip.yyyy}}</span>
+            </div>
+        </div>
+        <div class="saved-audio-player-container">
+            <audio controls>
+                <source src="{{clip.audio.url}}" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <div class="timestamp-container">
+            <span style="font-size: 12px;">{{clip.hour}}:{{clip.minute}}</span>
+        </div>
+    </div>
+    <hr style="margin-top: 5px;">
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static '/js/voice_box.js' %}"></script>
+{% endblock %}

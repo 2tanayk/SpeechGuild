@@ -1,0 +1,57 @@
+{%  extends 'serWebsite/main.html' %}
+{% load static%}
+{% block content %}
+
+<style>
+     img{
+        max-width: 100%;
+        max-height: 100%;
+        display: block; /* remove extra space below image */
+    }
+    .landing-flex-container {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        flex-wrap: wrap-reverse;
+        margin-bottom: 20vh;
+        margin-top: 15vh;
+    }
+    .landing-text-container{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;   
+    }
+    .landing-text-item-1{
+        margin-bottom: 50px;
+        /* background-color: aliceblue; */
+    }
+
+    .landing-image-container{
+        height: 70vh;
+        width: 40vw;
+    }
+</style>
+
+<div class="landing-flex-container">
+    <div class="landing-text-container">
+        <div class="landing-text-item-1">
+            <h1>SpeechGuild:</h1>
+            <h1>A Speech Recognition</h1>
+            <h1>System....</h1>
+        </div>
+        <div class="landing-text-item-1">
+            <h5>have your audio clips analysed</h5>
+            <h5>and segregated in the voice box :)</h5>
+        </div>
+        <div>
+            <form action="{% url 'audio' %}" style="display: inline;">
+                <button type="submit" class="btn btn-dark" style="width: 100%;">Get Started!</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="landing-image-container">
+        <img src="{% static 'images/ser_illustration.png' %}" alt="">
+    </div>
+</div>
+{% endblock %}
